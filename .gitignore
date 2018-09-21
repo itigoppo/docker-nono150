@@ -1,0 +1,4 @@
+/web01/apps
+!/web01/apps/.gitkeep
+/web01/logs
+!/web01/logs/.gitkeep

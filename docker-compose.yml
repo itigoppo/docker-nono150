@@ -1,0 +1,23 @@
+version: '2'
+services:
+  db01:
+    image: mysql:5.7
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+    - ./db01/data:/docker-host/db01/data
+
+  # web
+  web01:
+    build: ./web01/build
+    image: web:24
+    ports:
+    - "80:80"
+    links:
+    - "db01:db01"
+    volumes:
+    - ./web01/conf.d/vhosts.conf
+    - ./web01/logs:/var/log/httpd
+    - ./web01/apps/nono150/public_html:/var/www/html
