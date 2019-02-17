@@ -1,23 +1,41 @@
-version: '2'
+version: '3'
 services:
-  db01:
-    image: mysql:5.7
+  web:
+    container_name: nono150_web
+    build: ./docker/web
     ports:
-    - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+      - '80:80'
     volumes:
-    - ./db01/data:/docker-host/db01/data
+      - ./apps:/var/www/html
+      - ./docker/logs:/var/log/httpd
+      - ./docker/web/conf.d/vhosts.conf
+    depends_on:
+      - mysql
+    # 所属するネットワークとIPを指定
+    networks:
+      br0:
+        ipv4_address: 192.168.202.3
 
-  # web
-  web01:
-    build: ./web01/build
-    image: web:24
-    ports:
-    - "80:80"
-    links:
-    - "db01:db01"
+  mysql:
+    container_name: nono150_mysql
+    build: ./docker/db
     volumes:
-    - ./web01/conf.d/vhosts.conf
-    - ./web01/logs:/var/log/httpd
-    - ./web01/apps/nono150/public_html:/var/www/html
+      - ./docker/db/data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    hostname: localhost
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+    # 所属するネットワークとIPを指定
+    networks:
+      br0:
+        # このIPアドレスがデータベースホスト名になる ( localhost → 192.168.202.2)
+        ipv4_address: 192.168.202.2
+
+# 新規ブリッチを定義
+networks:
+  br0:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.202.0/24
