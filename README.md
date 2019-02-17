@@ -2,7 +2,7 @@
 
 - CentOS latest(centos7 2019-02-17)
 - PHP7.2
-- MySQL5,7
+- MySQL5.7
 
 ## How to set up
 
@@ -62,3 +62,8 @@ $ cd /var/www/html
 - Password: root    
 - Port: 3308
 
+## Start Develop
+
+```
+$ ./start-develop.sh
+```
