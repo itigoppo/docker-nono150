@@ -1,4 +1,6 @@
-/web01/apps
-!/web01/apps/.gitkeep
-/web01/logs
-!/web01/logs/.gitkeep
+/apps
+!/apps/.gitkeep
+/docker/logs
+!/docker/logs/.gitkeep
+/docker/db/data
+!/docker/db/data/.gitkeep
