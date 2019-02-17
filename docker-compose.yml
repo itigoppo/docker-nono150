@@ -9,6 +9,8 @@ services:
       - ./apps:/var/www/html
       - ./docker/logs:/var/log/httpd
       - ./docker/web/conf.d/vhosts.conf
+      # Add symlink directories if you use symlinks at documents.
+      - ~/git:/Users/itigoppo/git
     depends_on:
       - mysql
     # 所属するネットワークとIPを指定
