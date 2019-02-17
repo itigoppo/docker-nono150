@@ -29,8 +29,8 @@ RUN \
     php-gd \
     php-xml \
     php-cli \
-    php-opcache --nogpgcheck \
-    php-bcmath
+    php-intl \
+    php-opcache --nogpgcheck
 
 # clear yum cache
 RUN yum clean all
