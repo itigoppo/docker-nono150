@@ -34,6 +34,17 @@ services:
         # このIPアドレスがデータベースホスト名になる ( localhost → 192.168.202.2)
         ipv4_address: 192.168.202.2
 
+  mailhog:
+    container_name: nono150_mailhog
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    # 所属するネットワークとIPを指定
+    networks:
+      br0:
+        ipv4_address: 192.168.202.4
+
 # 新規ブリッチを定義
 networks:
   br0:
