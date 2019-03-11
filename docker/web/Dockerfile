@@ -30,7 +30,8 @@ RUN \
     php-xml \
     php-cli \
     php-intl \
-    php-opcache --nogpgcheck
+    php-opcache --nogpgcheck \
+    php-xdebug
 
 # clear yum cache
 RUN yum clean all
