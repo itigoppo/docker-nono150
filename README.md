@@ -19,7 +19,7 @@ You can access http://localhost/
 "/etc/hosts" add
 
 ```
-$ vim sudo /etc/hosts
+$ sudo vim /etc/hosts
 ```
  
 ```
