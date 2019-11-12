@@ -28,6 +28,7 @@ $ sudo vim /etc/hosts
 ```
 
 You can access http://nono150.test/
+You can access http://hpbg.nono150.test/
 
 ## Directory
 
@@ -62,8 +63,13 @@ $ cd /var/www/html
 - Password: root    
 - Port: 3308
 
-## Start Develop
+## MailHog
+
+http://nono150.test:8025/
+
+## StartDevelop
 
 ```
-$ ./start-develop.sh
+$ docker-compose exec web bash
+sh start-develop.sh
 ```

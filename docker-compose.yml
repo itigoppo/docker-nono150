@@ -6,11 +6,12 @@ services:
     ports:
       - '80:80'
     volumes:
-      - ./apps:/var/www/html
+      - ./docker/web/data:/var/www/html
       - ./docker/logs:/var/log/httpd
       - ./docker/web/conf.d/vhosts.conf
+      - ./docker/web/start-develop.sh
       # Add symlink directories if you use symlinks at documents.
-      - ~/git:/Users/itigoppo/git
+      - ./apps:/Users/itigoppo/apps
     depends_on:
       - mysql
     # 所属するネットワークとIPを指定

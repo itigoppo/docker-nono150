@@ -4,3 +4,5 @@
 !/docker/logs/.gitkeep
 /docker/db/data
 !/docker/db/data/.gitkeep
+/docker/web/data
+!/docker/web/data/.gitkeep

@@ -50,3 +50,6 @@ EXPOSE 80
 COPY ./conf.d/vhosts.conf /etc/httpd/conf.d/vhosts.conf
 
 CMD /usr/sbin/httpd -DFOREGROUND
+
+COPY ./start-develop.sh /start-develop.sh
+RUN chmod 755 /start-develop.sh
