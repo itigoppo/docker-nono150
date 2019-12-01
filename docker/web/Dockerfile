@@ -14,9 +14,9 @@ RUN yum -y install wget git vim zsh curl
 # install remi repo
 RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
-RUN yum-config-manager --enable remi-php72
+RUN yum-config-manager --enable remi-php73
 
-# install php72
+# install php73
 RUN \
   yum -y install \
     php-devel \
