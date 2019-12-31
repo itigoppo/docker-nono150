@@ -53,11 +53,9 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 EXPOSE 80
 
 COPY ./conf.d/vhosts.conf /etc/httpd/conf.d/vhosts.conf
-COPY ./conf.d/php73-php.conf /etc/httpd/conf.d/php73-php.conf
 
 RUN mv /etc/httpd/conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf.origin
 COPY ./conf.modules.d/00-mpm.conf /etc/httpd/conf.modules.d/00-mpm.conf
-COPY ./conf.modules.d/15-php73-php.conf /etc/httpd/conf.modules.d/15-php73-php.conf
 
 CMD /usr/sbin/httpd -DFOREGROUND
 
