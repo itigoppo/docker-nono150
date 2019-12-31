@@ -34,20 +34,26 @@ You can access http://hpbg.nono150.test/
 ## Directory
 
 ```
-├ apps : Document root
+├ apps
+  ├
 ├ docker-compose.yml
 └ docker
   ├ web
     ├ Dockerfile : centos, php, apatch install
+    ├ start-develop.sh : apps directory symbolic link web/data directory
     ├ conf.d
       ├ vhosts.conf
-    ├ php.ini
+    ├ conf.modules.d
+      ├ 00-mpm.conf
+    ├ data : Document root
+      ├
   ├ db
     ├ data : mysql data
       ├
     ├ Dockerfile : mysql install
     ├ my.cnf
-  ├ logs : server log
+  ├ logs : server & sql log
+    ├
 ```
 
 ## Bash
