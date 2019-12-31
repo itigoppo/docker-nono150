@@ -8,8 +8,6 @@ services:
     volumes:
       - ./docker/web/data:/var/www/html
       - ./docker/logs:/var/log/httpd
-      - ./docker/web/conf.d/vhosts.conf
-      - ./docker/web/start-develop.sh
       # Add symlink directories if you use symlinks at documents.
       - ./apps:/Users/itigoppo/apps
     depends_on:
@@ -24,6 +22,7 @@ services:
     build: ./docker/db
     volumes:
       - ./docker/db/data:/var/lib/mysql
+      - ./docker/logs:/var/log/mysql
     ports:
       - "3306:3306"
     hostname: localhost
